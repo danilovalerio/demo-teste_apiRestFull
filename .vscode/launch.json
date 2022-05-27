@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoTesteApplication<demo-teste>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.danilo.projetos.demoteste.DemoTesteApplication",
+            "projectName": "demo-teste",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
