@@ -4,3 +4,8 @@ Criar uma API RestFull para controle de produtos
 
 Modelo(model):
     Produto: id, nome, quantidade, valor, observacao
+
+Repositorio de produto
+    no primeiro momento vai simular um banco de dados
+    Métodos:
+        obterTodos, obterPorId, adicionar, atualizar, deletar 
