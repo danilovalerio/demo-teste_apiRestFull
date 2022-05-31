@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ProdutoRepository {
 
-    private List<Produto> produtos = new ArrayList<>();
+    private ArrayList<Produto> produtos = new ArrayList<>();
     private Integer ultimoId = 0;
 
     /**
@@ -67,7 +67,7 @@ public class ProdutoRepository {
      * @return produto atualizado
      */
     public Produto atualizar(Produto produto) {
-        Integer indexOfProduct = produtos.indexOf(produto);
+        int indexOfProduct = produtos.indexOf(produto);
 
         Optional<Produto> produtoEncontrado = obterPorId(produto.getId());
 
@@ -75,7 +75,10 @@ public class ProdutoRepository {
             throw new InputMismatchException("Produto não encontrado");
         }
 
-        produtos.set(indexOfProduct, produto);
+        deletar(produto.getId());
+        produtos.add(produto);
+
+        //produtos.set(indexOfProduct, produto);
         return produto;
     }
 

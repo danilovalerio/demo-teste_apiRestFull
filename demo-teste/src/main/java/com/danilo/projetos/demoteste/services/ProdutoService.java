@@ -59,6 +59,7 @@ public class ProdutoService {
 
     /**
      * Atualiza produto na lista
+     * @param id id do produto que será atualizado
      * @param produto Produto a ser atualizado
      * @return produto atualizado
      */
