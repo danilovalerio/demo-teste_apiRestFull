@@ -1,5 +1,6 @@
 package com.danilo.projetos.demoteste.repository;
 
+import com.danilo.projetos.demoteste.model.exception.ResourceNotFoundException;
 import java.util.ArrayList;
 
 import com.danilo.projetos.demoteste.model.Produto;
@@ -72,7 +73,7 @@ public class ProdutoRepository {
         Optional<Produto> produtoEncontrado = obterPorId(produto.getId());
 
         if (produtoEncontrado.isEmpty()) {
-            throw new InputMismatchException("Produto não encontrado");
+            throw new ResourceNotFoundException("Produto não encontrado");
         }
 
         deletar(produto.getId());
