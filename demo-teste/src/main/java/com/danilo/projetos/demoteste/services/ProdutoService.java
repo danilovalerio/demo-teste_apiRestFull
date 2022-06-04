@@ -24,7 +24,7 @@ public class ProdutoService {
      */
     public List<Produto> obterTodos(){
         //Aqui vem a regra caso tenha
-        return produtoRepository.obterTodos();
+        return produtoRepository.findAll();
     }
 
     /**
@@ -35,7 +35,7 @@ public class ProdutoService {
      */
     public Optional<Produto> obterPorId(Integer id) {
         //valida se id existe mesmo ou não
-        return produtoRepository.obterPorId(id);
+        return produtoRepository.findById(id);
     }
 
     /**
@@ -45,7 +45,7 @@ public class ProdutoService {
      */
     public Produto adicionar(Produto produto) {
         //regra para validar produto, qtd maior que 0 por exemplo, voltagem diferente de vazio
-       return produtoRepository.adicionar(produto);
+       return produtoRepository.save(produto);
     }
 
     /**
@@ -54,7 +54,7 @@ public class ProdutoService {
      */
     public void deletar(Integer id) {
         //verificar se usuario tem permissao para deletar
-        produtoRepository.deletar(id);
+        produtoRepository.deleteById(id);
     }
 
     /**
@@ -66,6 +66,6 @@ public class ProdutoService {
     public Produto atualizar(Integer id, Produto produto) {
         //ter alguma validacao no id
         produto.setId(id);
-        return produtoRepository.atualizar(produto);
+        return produtoRepository.save(produto);
     }
 }
