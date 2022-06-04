@@ -8,79 +8,14 @@ import com.danilo.projetos.demoteste.model.Produto;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * injetando a dependencia no spring
+ * interface generica que recebe dois parametros
+ * um modelo @Produto e o tipo de id @Integer
  */
 @Repository
-public class ProdutoRepository {
-
-    private ArrayList<Produto> produtos = new ArrayList<>();
-    private Integer ultimoId = 0;
-
-    /**
-     * Metodo para retornar uma lista de produtos
-     *
-     * @return Lista de produtos.
-     */
-    public List<Produto> obterTodos() {
-        return produtos;
-    }
-
-    /**
-     * Metodo que retorna um Optional de Produto pelo seu id
-     *
-     * @param id id do produto procurado
-     * @return retorna um Produto caso seja encontrado
-     */
-    public Optional<Produto> obterPorId(Integer id) {
-        return produtos
-                .stream()
-                .filter(produto -> produto.getId() == id)
-                .findFirst();
-    }
-
-    /**
-     * Incrementa valor no ultimo id e adiciona produto na lista
-     * @param produto que será adicionado
-     * @return retorna produto adicionado na lista
-     */
-    public Produto adicionar(Produto produto) {
-        ultimoId++;
-        produto.setId(ultimoId);
-        produtos.add(produto);
-
-        return produto;
-    }
-
-    /**
-     * Remove produto com o id informado
-     * @param id Id do produto que será deletado
-     */
-    public void deletar(Integer id) {
-        produtos.removeIf(produto -> produto.getId() == id);
-    }
-
-    /**
-     * Atualiza produto na lista
-     * @param produto Produto a ser atualizado
-     * @return produto atualizado
-     */
-    public Produto atualizar(Produto produto) {
-        int indexOfProduct = produtos.indexOf(produto);
-
-        Optional<Produto> produtoEncontrado = obterPorId(produto.getId());
-
-        if (produtoEncontrado.isEmpty()) {
-            throw new ResourceNotFoundException("Produto não encontrado");
-        }
-
-        deletar(produto.getId());
-        produtos.add(produto);
-
-        //produtos.set(indexOfProduct, produto);
-        return produto;
-    }
+public interface ProdutoRepository extends JpaRepository<Produto, Integer> {
 
 }
