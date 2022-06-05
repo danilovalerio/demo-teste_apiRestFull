@@ -14,3 +14,9 @@ CRUD Métodos:
 
 ####Controller de produto
 -[x] obterTodos, obterPorId, adicionar, atualizar, deletar
+
+####Conectar o crud ao banco de dados Postgresql
+-[x] conectado e testado
+
+####Criar um DTO para desacoplar a entidade produto
+-[x] criar um DTO para trafegar od dados de produto
