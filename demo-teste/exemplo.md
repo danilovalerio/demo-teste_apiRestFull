@@ -20,3 +20,10 @@ CRUD Métodos:
 
 ####Criar um DTO para desacoplar a entidade produto
 -[x] criar um DTO para trafegar od dados de produto
+
+####Refatoração de Service e Controller
+-[x] Utilizar os models de view - ProdutoResponse, ProdutoRequest e ProdutoDTO com Mappers
+
+####Criar um Método que centralize o Uso do Mapper em Shared
+-[ ] Diminuir o boilerplate dos Mappers utilizados em Controller e Service através de um médoto
+que recebe os parametros para serem tratados e devolvidos
