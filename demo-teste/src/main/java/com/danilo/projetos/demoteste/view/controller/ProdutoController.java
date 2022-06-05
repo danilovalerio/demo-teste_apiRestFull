@@ -1,4 +1,4 @@
-package com.danilo.projetos.demoteste.controller;
+package com.danilo.projetos.demoteste.view.controller;
 
 import com.danilo.projetos.demoteste.model.Produto;
 import com.danilo.projetos.demoteste.services.ProdutoService;
